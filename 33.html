@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mana spēle</title>
+<title>Tiki Takis simulators</title>
 <style>
 /* Pamata izkārtojums — šīs rindas nemaini */
 body { font-family: Arial, sans-serif; max-width: 680px; margin: 24px auto; padding: 16px; line-height: 1.6; background-color: #f8fafc; color: #1e293b; }
@@ -18,13 +18,14 @@ img { max-width: 100%; height: auto; }
 </style>
 </head>
 <body>
-<h1>Pārbaudi punktus</h1>
+<h1>Pārbaudi taki skaitu</h1>
 <!-- 3. UZDEVUMS: šeit zem virsraksta pievieno <p id="noteikumi"> rindkopu ar uzvaras mērķi -->
+<p id="noteikumi">lai uzvarētu, savāc 18 tiki takis.</p>  
 <div class="panelis">
-  <label for="skaits">Punkti</label>
+  <label for="skaits">Taki</label>
   <input id="skaits" type="number" value="0">
   <button onclick="parbaudit()">Pārbaudīt</button>
-  <p id="atbilde">Ievadi punktus un nospied pogu.</p>
+  <p id="atbilde">Ievadi taki un nospied pogu.</p>
 </div>
 <script>
 function parbaudit() {
@@ -33,10 +34,17 @@ function parbaudit() {
   let zina = "";
 
   // === 2. un 3. UZDEVUMS — MAINI ŠEIT: punktu pārbaude ar if / else if / else ===
-  if (punkti >= 10) {
-    zina = "Uzvara!";
-  } else {
-    zina = "Turpini spēli!";
+  if (punkti === -18) {
+    zina = "holy reference"
+  }
+  else if (punkti < 0) {
+    zina = "kautkads error notika. taki nevajadzētu būt negatīviem."
+  }
+  else if (punkti >= 18) {
+    zina = "tu esi uzvarējis tagad."
+  }
+  else {
+    zina = "vēl jāsavāc " + (18- punkti) + " takis lai uzvarētu"
   }
 
   // === GATAVĀ DAĻA — parāda izvēlēto ziņu lapā (nemaini) ===
